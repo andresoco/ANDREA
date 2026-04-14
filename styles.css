@@ -1181,3 +1181,89 @@ nav {
     animation: floatSticker6 11s ease-in-out infinite 1.3s, intenseBrilliance 4.3s ease-in-out infinite 1.3s;
 }
 
+/* ===== MOMENT CARDS ===== */
+.moment-card {
+    animation: cardGlowBrilliance 3s ease-in-out infinite;
+}
+
+.moment-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 28px 80px rgba(15, 23, 42, 0.12);
+}
+
+/* ===== LESSON CARDS ===== */
+.lesson-card {
+    animation: cardGlowBrilliance 3s ease-in-out infinite;
+}
+
+.lesson-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 28px 80px rgba(15, 23, 42, 0.12);
+}
+
+/* ===== PREMIUM GALLERY SECTION ===== */
+#galeria-premium {
+    background: linear-gradient(180deg, #ffffff 0%, #f5feff 50%, #e8eff6 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.premium-card {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 2rem;
+    box-shadow: 0 24px 70px rgba(15, 23, 42, 0.08);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    overflow: hidden;
+    position: relative;
+}
+
+.premium-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.premium-card:hover::before {
+    opacity: 1;
+}
+
+.premium-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: block;
+}
+
+.premium-card:hover img {
+    transform: scale(1.08);
+}
+
+.premium-card .absolute {
+    transition: all 0.4s ease;
+}
+
+.premium-card:hover .absolute {
+    backdrop-filter: blur(8px);
+}
+
+/* ===== GAME STYLES ===== */
+.heart-icon {
+    position: absolute;
+    font-size: 2rem;
+    cursor: pointer;
+    animation: heartFall 3s ease-in forwards;
+    pointer-events: auto;
+}
+
+@keyframes heartFall {
+    to {
+        transform: translateY(400px);
+        opacity: 0;
+    }
+}
+

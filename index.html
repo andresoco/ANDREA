@@ -41,13 +41,15 @@
             <div class="text-2xl font-serif italic bg-gradient-to-r from-cyan-600 to-green-600 bg-clip-text text-transparent">
                 Mementos
             </div>
-            <div class="hidden md:flex flex-wrap gap-4 items-center justify-center md:justify-start">
-                <a href="#inicio" class="text-gray-600 hover:text-cyan-600 transition-colors duration-300 text-sm font-medium"><span lang="es">Inicio</span><span lang="en" class="hidden">Home</span></a>
-                <a href="#aniversario" class="text-gray-600 hover:text-cyan-600 transition-colors duration-300 text-sm font-medium"><span lang="es">Aniversario</span><span lang="en" class="hidden">Anniversary</span></a>
-                <a href="#galeria" class="text-gray-600 hover:text-cyan-600 transition-colors duration-300 text-sm font-medium"><span lang="es">Galería</span><span lang="en" class="hidden">Gallery</span></a>
-                <a href="#video" class="text-gray-600 hover:text-cyan-600 transition-colors duration-300 text-sm font-medium"><span lang="es">Video</span><span lang="en" class="hidden">Video</span></a>
-                <a href="#mensaje" class="text-gray-600 hover:text-cyan-600 transition-colors duration-300 text-sm font-medium"><span lang="es">Mensaje</span><span lang="en" class="hidden">Message</span></a>
-                <a href="#sorpresa" class="text-gray-600 hover:text-cyan-600 transition-colors duration-300 text-sm font-medium"><span lang="es">Sorpresa</span><span lang="en" class="hidden">Surprise</span></a>
+            <div class="hidden md:flex flex-wrap gap-3 items-center justify-center md:justify-start text-xs">
+                <a href="#inicio" class="text-gray-600 hover:text-cyan-600 transition-colors duration-300 font-medium"><span lang="es">Inicio</span><span lang="en" class="hidden">Home</span></a>
+                <a href="#aniversario" class="text-gray-600 hover:text-cyan-600 transition-colors duration-300 font-medium"><span lang="es">Aniversario</span><span lang="en" class="hidden">Anniversary</span></a>
+                <a href="#galeria" class="text-gray-600 hover:text-cyan-600 transition-colors duration-300 font-medium"><span lang="es">Galería</span><span lang="en" class="hidden">Gallery</span></a>
+                <a href="#momentos" class="text-gray-600 hover:text-cyan-600 transition-colors duration-300 font-medium"><span lang="es">Momentos</span><span lang="en" class="hidden">Moments</span></a>
+                <a href="#quiz" class="text-gray-600 hover:text-cyan-600 transition-colors duration-300 font-medium"><span lang="es">Quiz</span><span lang="en" class="hidden">Quiz</span></a>
+                <a href="#juego" class="text-gray-600 hover:text-cyan-600 transition-colors duration-300 font-medium"><span lang="es">Juego</span><span lang="en" class="hidden">Game</span></a>
+                <a href="#video" class="text-gray-600 hover:text-cyan-600 transition-colors duration-300 font-medium"><span lang="es">Videos</span><span lang="en" class="hidden">Videos</span></a>
+                <a href="#mensaje" class="text-gray-600 hover:text-cyan-600 transition-colors duration-300 font-medium"><span lang="es">Mensaje</span><span lang="en" class="hidden">Message</span></a>
             </div>
             <div class="flex items-center gap-4">
                 <button id="langToggle" class="px-4 py-2 bg-gradient-to-r from-cyan-600 to-green-600 text-white rounded-full text-xs font-bold hover:shadow-lg transition-all duration-300">
@@ -63,9 +65,11 @@
                 <a href="#inicio" class="text-gray-700 hover:text-cyan-600 transition-colors duration-300 text-base font-medium"><span lang="es">Inicio</span><span lang="en" class="hidden">Home</span></a>
                 <a href="#aniversario" class="text-gray-700 hover:text-cyan-600 transition-colors duration-300 text-base font-medium"><span lang="es">Aniversario</span><span lang="en" class="hidden">Anniversary</span></a>
                 <a href="#galeria" class="text-gray-700 hover:text-cyan-600 transition-colors duration-300 text-base font-medium"><span lang="es">Galería</span><span lang="en" class="hidden">Gallery</span></a>
-                <a href="#video" class="text-gray-700 hover:text-cyan-600 transition-colors duration-300 text-base font-medium"><span lang="es">Video</span><span lang="en" class="hidden">Video</span></a>
+                <a href="#momentos" class="text-gray-700 hover:text-cyan-600 transition-colors duration-300 text-base font-medium"><span lang="es">Momentos</span><span lang="en" class="hidden">Moments</span></a>
+                <a href="#quiz" class="text-gray-700 hover:text-cyan-600 transition-colors duration-300 text-base font-medium"><span lang="es">Quiz</span><span lang="en" class="hidden">Quiz</span></a>
+                <a href="#juego" class="text-gray-700 hover:text-cyan-600 transition-colors duration-300 text-base font-medium"><span lang="es">Juego</span><span lang="en" class="hidden">Game</span></a>
+                <a href="#video" class="text-gray-700 hover:text-cyan-600 transition-colors duration-300 text-base font-medium"><span lang="es">Videos</span><span lang="en" class="hidden">Videos</span></a>
                 <a href="#mensaje" class="text-gray-700 hover:text-cyan-600 transition-colors duration-300 text-base font-medium"><span lang="es">Mensaje</span><span lang="en" class="hidden">Message</span></a>
-                <a href="#sorpresa" class="text-gray-700 hover:text-cyan-600 transition-colors duration-300 text-base font-medium"><span lang="es">Sorpresa</span><span lang="en" class="hidden">Surprise</span></a>
                 <button id="mobileLangToggle" class="mt-4 px-4 py-3 bg-gradient-to-r from-cyan-600 to-green-600 text-white rounded-full text-sm font-bold hover:shadow-lg transition-all duration-300">
                     EN
                 </button>
@@ -241,6 +245,82 @@
             <div id="cloudMessages" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
         </div>
     </section>
+
+    <!-- QUIZ DE AMISTAD SECTION -->
+    <section id="quiz" class="scroll-reveal py-24 bg-gradient-to-br from-purple-50 to-purple-100 relative overflow-hidden">
+        <div class="max-w-5xl mx-auto px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-5xl md:text-6xl italic mb-4 text-gray-800 section-title">
+                    <span lang="es">Quiz de Amistad</span>
+                    <span lang="en" class="hidden"> Friendship Quiz</span>
+                </h2>
+                <p class="text-gray-600 mb-8">
+                    <span lang="es">¿Cuánto crees que me conoces? Demuéstramelo con este divertido quiz</span>
+                    <span lang="en" class="hidden">How well do you think you know me? Prove it with this fun quiz</span>
+                </p>
+            </div>
+
+            <div id="quizContainer" class="bg-white/90 backdrop-blur-sm rounded-[2rem] p-10 shadow-2xl border border-white/60">
+                <div id="quizContent" class="max-w-3xl mx-auto">
+                    <div id="quizQuestion" class="mb-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6"><span lang="es" id="questionText"></span><span lang="en" class="hidden" id="questionTextEn"></span></h3>
+                        <div id="answersContainer" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+                    </div>
+                    <div id="quizResult" class="hidden text-center">
+                        <p class="text-6xl mb-4" id="resultEmoji"></p>
+                        <p class="text-2xl font-bold text-gray-800 mb-4" id="resultText"></p>
+                        <button id="restartQuizBtn" class="px-8 py-3 bg-gradient-to-r from-cyan-600 to-green-600 text-white rounded-full font-bold hover:shadow-lg transition-all duration-300">
+                            <span lang="es">Intentar de nuevo</span>
+                            <span lang="en" class="hidden">Try again</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MINIJUEGO SORPRESA SECTION -->
+    <section id="juego" class="scroll-reveal py-24 bg-gradient-to-r from-purple-100 via-indigo-100 to-purple-100 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-5xl md:text-6xl italic mb-4 text-gray-800 section-title">
+                    <span lang="es"> Minijuego Dinámico</span>
+                    <span lang="en" class="hidden"> Dynamic Minigame</span>
+                </h2>
+                <p class="text-gray-600">
+                    <span lang="es">¡Atrapa los emojis! Tienes 15 segundos</span>
+                    <span lang="en" class="hidden">Catch the emojis! You have 15 seconds</span>
+                </p>
+            </div>
+
+            <div class="bg-white/90 backdrop-blur-sm rounded-[2rem] p-10 shadow-2xl border border-white/60">
+                <div id="gameArea" class="relative w-full h-96 bg-gradient-to-br from-purple-200 to-indigo-200 rounded-2xl overflow-hidden border-4 border-purple-400 cursor-crosshair flex items-center justify-center">
+                    <div class="text-center">
+                        <p class="text-4xl font-bold text-gray-800 mb-4">
+                            <span lang="es">Haz clic para empezar</span>
+                            <span lang="en" class="hidden">Click to start</span>
+                        </p>
+                        <p class="text-3xl font-bold text-purple-600 mb-2">🎯 <span id="gameScore">0</span> / <span id="gameTarget">5</span></p>
+                        <p class="text-lg text-purple-500">
+                            <span lang="es">Emojis capturados / Meta</span>
+                            <span lang="en" class="hidden">Emojis caught / Goal</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="text-center mt-8">
+                    <p class="text-lg font-bold text-gray-700 mb-4">
+                        <span lang="es">Puntuación final: <span id="finalScore">0</span></span>
+                        <span lang="en" class="hidden">Final score: <span id="finalScore">0</span></span>
+                    </p>
+                    <button id="restartGameBtn" class="px-8 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-full font-bold hover:shadow-lg transition-all duration-300">
+                        <span lang="es">Jugar de nuevo</span>
+                        <span lang="en" class="hidden">Play again</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <div id="imageModal" class="hidden fixed inset-0 z-50 items-center justify-center bg-black/80 p-4 backdrop-blur-sm">
         <div id="modalCard" class="max-w-3xl w-full rounded-[2rem] overflow-hidden shadow-2xl animate-modal-open modal-card">

@@ -32,7 +32,7 @@ function updateAnniversary() {
 const galleryImages = [
     'images/david1.png',
     'images/David2.png',
-    'images/david3.png',
+    'images/David3.png',
     'images/David4.png',
     'images/David5.png',
     'images/David6.png',
@@ -405,6 +405,217 @@ document.addEventListener('DOMContentLoaded', () => {
             closeImageModal();
         }
     });
+
+    // ===== QUIZ DE AMISTAD =====
+    const quizQuestions = [
+        {
+            es: '¿Cuál es mi comida favorita?',
+            en: 'What is my favorite food?',
+            answers: [
+                { es: 'Makis ', en: 'Makis', correct: true },
+                { es: 'KFC', en: 'KFC', correct: false },
+                { es: 'Tacos', en: 'Tacos', correct: false },
+                { es: 'Hamburgesas', en: 'Hamburgers', correct: false }
+            ]
+        },
+        {
+            es: '¿Cuál es mi color favorito?',
+            en: 'What is my favorite color?',
+            answers: [
+                { es: 'Morado', en: 'Purple', correct: true },
+                { es: 'Azul', en: 'Blue', correct: false },
+                { es: 'Rojo', en: 'Red', correct: false },
+                { es: 'Verde', en: 'Green', correct: false }
+            ]
+        },
+        {
+            es: '¿Cuál es mi película/serie favorita?',
+            en: 'What is my favorite movie/TV show?',
+            answers: [
+                { es: 'Terror', en: 'Horror', correct: true },
+                { es: 'Comedia', en: 'Comedy', correct: false },
+                { es: 'Acción', en: 'Action', correct: false },
+                { es: 'Drama', en: 'Drama', correct: false }
+            ]
+        },
+        {
+            es: '¿Cuál es mi estación favorita?',
+            en: 'What is my favorite season?',
+            answers: [
+                { es: 'Invierno', en: 'Winter', correct: true },
+                { es: 'Verano', en: 'Summer', correct: false },
+                { es: 'Primavera', en: 'Spring', correct: false },
+                { es: 'Otoño', en: 'Fall', correct: false }
+            ]
+        }
+        
+    ];
+
+    let currentQuestion = 0;
+    let quizScore = 0;
+
+    function startQuiz() {
+        currentQuestion = 0;
+        quizScore = 0;
+        showQuizQuestion();
+    }
+
+    function showQuizQuestion() {
+        const question = quizQuestions[currentQuestion];
+        const lang = document.documentElement.lang === 'es' ? 'es' : 'en';
+        
+        document.getElementById('questionText').textContent = lang === 'es' ? question.es : question.en;
+        const answersContainer = document.getElementById('answersContainer');
+        answersContainer.innerHTML = '';
+        
+        question.answers.forEach((answer, index) => {
+            const button = document.createElement('button');
+            button.className = 'px-6 py-3 bg-gradient-to-r from-cyan-500 to-green-500 text-white rounded-xl font-bold hover:shadow-lg transition-all duration-300 hover:scale-105';
+            button.textContent = lang === 'es' ? answer.es : answer.en;
+            button.addEventListener('click', () => selectAnswer(answer.correct));
+            answersContainer.appendChild(button);
+        });
+    }
+
+    function selectAnswer(correct) {
+        if (correct) quizScore++;
+        currentQuestion++;
+        
+        if (currentQuestion < quizQuestions.length) {
+            showQuizQuestion();
+        } else {
+            showQuizResult();
+        }
+    }
+
+    function showQuizResult() {
+        const lang = document.documentElement.lang === 'es' ? 'es' : 'en';
+        document.getElementById('quizQuestion').classList.add('hidden');
+        document.getElementById('quizResult').classList.remove('hidden');
+        
+        const percentage = (quizScore / quizQuestions.length) * 100;
+        
+        if (percentage === 100) {
+            document.getElementById('resultEmoji').textContent = '🏆';
+            document.getElementById('resultText').textContent = lang === 'es' ? 
+                '¡PERFECTO! ¡Me conoces increíblemente bien!' : 
+                'PERFECT! You know me incredibly well!';
+        } else if (percentage >= 66) {
+            document.getElementById('resultEmoji').textContent = '😄';
+            document.getElementById('resultText').textContent = lang === 'es' ? 
+                '¡Muy bien! ¡Sabes mucho de mí!' : 
+                'Very good! You know a lot about me!';
+        } else {
+            document.getElementById('resultEmoji').textContent = '😅';
+            document.getElementById('resultText').textContent = lang === 'es' ? 
+                'Necesitamos pasar más tiempo juntos 😊' : 
+                'We need to spend more time together 😊';
+        }
+    }
+
+    if (document.getElementById('quizContainer')) {
+        startQuiz();
+        document.getElementById('restartQuizBtn').addEventListener('click', () => {
+            document.getElementById('quizQuestion').classList.remove('hidden');
+            document.getElementById('quizResult').classList.add('hidden');
+            startQuiz();
+        });
+    }
+
+    // ===== CARTA SECRETA =====
+    const unlockLetterBtn = document.getElementById('unlockLetterBtn');
+    const closeLetterBtn = document.getElementById('closeLetterBtn');
+    const lockedLetter = document.getElementById('lockedLetter');
+    const unlockedLetter = document.getElementById('unlockedLetter');
+
+    if (unlockLetterBtn) {
+        unlockLetterBtn.addEventListener('click', () => {
+            lockedLetter.classList.add('hidden');
+            unlockedLetter.classList.remove('hidden');
+        });
+    }
+
+    if (closeLetterBtn) {
+        closeLetterBtn.addEventListener('click', () => {
+            unlockedLetter.classList.add('hidden');
+            lockedLetter.classList.remove('hidden');
+        });
+    }
+
+    // ===== MINIJUEGO SORPRESA =====
+    let gameActive = false;
+    let gameScore = 0;
+    let gameTime = 15;
+    let gameTimer = null;
+    let gameTarget = 5;
+    
+    // Emoji pool for variety and fun
+    const emojiPool = ['😄', '🎉', '✨', '👻', '❄️', '🍣', '♣️', '💜', '🌟', '🎃'];
+
+    const gameArea = document.getElementById('gameArea');
+    const gameScoreEl = document.getElementById('gameScore');
+    const gameTimerEl = document.getElementById('gameTimer');
+    const gameTargetEl = document.getElementById('gameTarget');
+    const finalScoreEl = document.getElementById('finalScore');
+    const restartGameBtn = document.getElementById('restartGameBtn');
+
+    function startGame() {
+        gameActive = true;
+        gameScore = 0;
+        gameTime = 15;
+        gameArea.textContent = '';
+        gameScoreEl.textContent = '0';
+        if (gameTimerEl) gameTimerEl.textContent = '15';
+        if (gameTargetEl) gameTargetEl.textContent = gameTarget;
+        
+        gameTimer = setInterval(() => {
+            gameTime--;
+            if (gameTimerEl) gameTimerEl.textContent = gameTime;
+            if (gameTime <= 0) {
+                endGame();
+            } else {
+                createEmoji();
+            }
+        }, 400);
+    }
+
+    function createEmoji() {
+        if (!gameActive) return;
+        
+        // Random emoji from pool
+        const randomEmoji = emojiPool[Math.floor(Math.random() * emojiPool.length)];
+        
+        const emoji = document.createElement('div');
+        emoji.className = 'heart-icon';
+        emoji.textContent = randomEmoji;
+        emoji.style.left = Math.random() * (gameArea.offsetWidth - 60) + 'px';
+        emoji.style.top = '0px';
+        emoji.style.fontSize = (Math.random() * 20 + 30) + 'px';
+        emoji.style.cursor = 'pointer';
+        
+        emoji.addEventListener('click', (e) => {
+            e.stopPropagation();
+            emoji.remove();
+            gameScore++;
+            gameScoreEl.textContent = gameScore;
+        });
+        
+        gameArea.appendChild(emoji);
+        setTimeout(() => emoji.remove(), 3000);
+    }
+
+    function endGame() {
+        gameActive = false;
+        clearInterval(gameTimer);
+        finalScoreEl.textContent = gameScore;
+    }
+
+    if (gameArea) {
+        gameArea.addEventListener('click', startGame);
+        if (restartGameBtn) {
+            restartGameBtn.addEventListener('click', startGame);
+        }
+    }
 
     document.getElementById('langToggle').addEventListener('click', toggleLanguage);
     const menuToggle = document.getElementById('menuToggle');
